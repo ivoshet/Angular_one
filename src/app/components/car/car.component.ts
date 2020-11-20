@@ -12,6 +12,7 @@ export class CarComponent implements OnInit {
   model: string;
   colors: Colors;
   options: string[];
+  test: any;
 
   constructor() {}
 
@@ -25,6 +26,30 @@ export class CarComponent implements OnInit {
       wheels: 'silver',
     };
     this.options = ['ABS', 'autopilot', 'parking'];
+    this.test = 1;
+  }
+
+  //events
+  carSelect(name:string){
+    if(name == 'bmw'){
+      this.name = 'BMW';
+      this.model = 'x5';
+    }
+    else if(name == 'audi'){
+      this.name = 'Audi';
+      this.speed = 235;
+      this.model = 'RS8';
+      this.colors = {
+        car: 'black',
+        salon: 'white',
+        wheels: 'silver',
+      };
+      this.options = ['ABS', 'autopilot', 'parking'];
+    }
+    else {
+      this.name = 'Mercedes';
+      this.model = 'e280';
+    }
   }
 }
 

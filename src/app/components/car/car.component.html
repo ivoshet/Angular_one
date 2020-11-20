@@ -1,6 +1,24 @@
-<p>
-  {{ name }}
-</p>
-<p>
-  {{speed}}
-</p>
+<div class="container">
+  <h4>
+    <mark> Automobile: </mark>
+    {{ name }} <small>{{ model }}</small>
+  </h4>
+  <div class="alert alert-success">
+    Haracteristics:
+    <ul>
+      <li>color: {{ colors.car }}</li>
+      <li>salon: {{ colors.salon }}</li>
+      <li>wheels: {{ colors.wheels }}</li>
+    </ul>
+  </div>
+  <h4>Possibles:</h4>
+  <div class="alert alert-warning">
+    <ul>
+      <li *ngFor="let opt of options">{{ opt }}</li>
+    </ul>
+  </div>
+  <h4>Choice automobile</h4>
+  <button class="btn btn-danger" (click)="carSelect('bmw')">BMW</button>
+  <button class="btn btn-success" (click)="carSelect('audi')">Audi</button>
+  <button class="btn btn-info" (click)="carSelect('daimler')">Daimler</button>
+</div>
