@@ -12,9 +12,19 @@
     </ul>
   </div>
   <h4>Possibles:</h4>
+  <form (submit)="addOpt(option.value)">
+    <div class="form-group">
+      <label for="option">for new possible</label>
+      <input type="text" id="option" placeholder="input data" class="form-control" #option>
+      <br>
+      <button type="submit" class="btn btn-outline-success">Add</button>
+    </div>
+  </form>
   <div class="alert alert-warning">
     <ul>
-      <li *ngFor="let opt of options">{{ opt }}</li>
+      <li *ngFor="let opt of options">{{ opt }}
+        <button class="btn btn-danger btn-sm" (click)="deleteOpt(opt)">x</button>
+      </li>
     </ul>
   </div>
   <h4>Choice automobile</h4>
@@ -22,3 +32,4 @@
   <button class="btn btn-success" (click)="carSelect('audi')">Audi</button>
   <button class="btn btn-info" (click)="carSelect('daimler')">Daimler</button>
 </div>
+

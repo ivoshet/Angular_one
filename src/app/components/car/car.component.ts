@@ -1,4 +1,4 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+// import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -29,13 +29,17 @@ export class CarComponent implements OnInit {
     this.test = 1;
   }
 
-  //events
-  carSelect(name:string){
-    if(name == 'bmw'){
+  addOpt(option: string) {
+    this.options.unshift(option);
+    return false;
+  }
+
+  //events handler
+  carSelect(name: string) {
+    if (name == 'bmw') {
       this.name = 'BMW';
       this.model = 'x5';
-    }
-    else if(name == 'audi'){
+    } else if (name == 'audi') {
       this.name = 'Audi';
       this.speed = 235;
       this.model = 'RS8';
@@ -45,11 +49,21 @@ export class CarComponent implements OnInit {
         wheels: 'silver',
       };
       this.options = ['ABS', 'autopilot', 'parking'];
-    }
-    else {
+    } else {
       this.name = 'Mercedes';
       this.model = 'e280';
     }
+  }
+  deleteOpt(option:string) {
+    for (let i:number = 0; i < this.options.length; i++) {
+      // console.log(i);
+      if (this.options[i] == option) {
+        // console.log(i);
+        this.options.splice(i, 1);
+        break;
+      }
+    }
+    // console.log(option)
   }
 }
 
